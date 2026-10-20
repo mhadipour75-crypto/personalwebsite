@@ -2,75 +2,99 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center hero-gradient grid-pattern overflow-hidden">
-      {/* Floating orbs */}
-      <div className="floating-orb w-96 h-96 bg-[#004F90] top-1/4 -left-48" />
-      <div className="floating-orb w-72 h-72 bg-[#4ECDC4] bottom-1/4 right-0" style={{ animationDelay: '-5s' }} />
-      <div className="floating-orb w-48 h-48 bg-[#0070CC] top-1/2 left-1/3" style={{ animationDelay: '-10s' }} />
+    <section className="relative min-h-screen flex items-center hero-gradient grid-bg overflow-hidden">
+      {/* Ambient orbs */}
+      <div className="floating-orb w-[500px] h-[500px] bg-blue-600/20 -top-20 -right-40" />
+      <div className="floating-orb w-[300px] h-[300px] bg-cyan-500/10 bottom-20 left-10" style={{ animationDelay: '-8s' }} />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
-            <div className="glow-dot animate-pulse-glow" />
-            <span className="text-xs text-slate-400 tracking-wider uppercase">AI Researcher & Computer Vision Scientist</span>
+      <div className="relative z-10 w-full pt-32 pb-20 px-6 lg:px-10">
+        <div className="max-w-7xl mx-auto">
+          {/* Status badge - properly positioned below navbar */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-10"
+          >
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/[0.06] bg-white/[0.02]">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span className="text-[13px] text-slate-400 tracking-wide">Open to research collaborations</span>
+            </div>
+          </motion.div>
+
+          {/* Main headline */}
+          <div className="max-w-5xl">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="font-display text-[clamp(2.8rem,8vw,7rem)] font-bold leading-[0.9] tracking-tight mb-8"
+            >
+              <span className="text-white">Building AI</span>
+              <br />
+              <span className="text-white">that sees what</span>
+              <br />
+              <span className="gradient-text-warm">the eye can't.</span>
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10"
+            >
+              <p className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed font-light text-balance">
+                I'm <span className="text-white font-normal">Mahshid Hadipour</span> — an AI researcher focused on 
+                deep learning for medical imaging, computer vision, and transforming healthcare 
+                through intelligent systems.
+              </p>
+
+              <div className="flex items-center gap-6">
+                <a
+                  href="#research"
+                  className="group flex items-center gap-3 text-sm text-white hover:text-blue-300 transition-colors"
+                >
+                  <span className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-400/40 group-hover:bg-blue-500/5 transition-all">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                    </svg>
+                  </span>
+                  <span className="tracking-wide">View my work</span>
+                </a>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6"
-        >
-          <span className="text-shadow-glow">Mahshid</span>
-          <br />
-          <span className="gradient-text">Hadipour</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light"
-        >
-          Advancing the frontiers of <span className="text-white font-normal">deep learning</span> and{' '}
-          <span className="text-white font-normal">medical image analysis</span> to transform 
-          healthcare through artificial intelligence.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <a
-            href="#about"
-            className="group relative px-8 py-3.5 bg-gradient-to-r from-[#004F90] to-[#0070CC] rounded-full text-white text-sm font-medium overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(0,79,144,0.4)]"
+          {/* Bottom stats bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-24 pt-10 border-t border-white/[0.04]"
           >
-            <span className="relative z-10">Explore My Work</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0070CC] to-[#4ECDC4] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </a>
-          <a
-            href="#contact"
-            className="px-8 py-3.5 rounded-full border border-slate-700 text-slate-300 text-sm font-medium hover:border-[#0070CC] hover:text-white transition-all duration-300"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-slate-600 to-transparent animate-pulse" />
-        </motion.div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div>
+                <p className="stat-number text-3xl md:text-4xl font-bold text-white">Top 1%</p>
+                <p className="text-slate-500 text-sm mt-2">National ranking, Iran</p>
+              </div>
+              <div>
+                <p className="stat-number text-3xl md:text-4xl font-bold text-white">3.87</p>
+                <p className="text-slate-500 text-sm mt-2">M.Sc. GPA / 4.0</p>
+              </div>
+              <div>
+                <p className="stat-number text-3xl md:text-4xl font-bold text-white">6+</p>
+                <p className="text-slate-500 text-sm mt-2">Years of research</p>
+              </div>
+              <div>
+                <p className="stat-number text-3xl md:text-4xl font-bold text-white">3</p>
+                <p className="text-slate-500 text-sm mt-2">Research labs</p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,83 +1,107 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const experiences = [
+const projects = [
   {
-    period: '2023 – Present',
-    title: 'Remote Research Assistant',
-    institution: 'Survival Analysis Lab, Hamadan University of Technology',
-    location: 'Remote',
-    supervisors: 'Prof. Nader Karimi (Supervisor) · Sardar Jahani (Collaborator)',
-    description: 'Conducting collaborative research on deep learning–based medical image survival analysis, with emphasis on methodological design and experimental planning.',
+    period: '2023 — Present',
+    title: 'Medical Image Survival Analysis',
+    description: 'Developing deep learning frameworks for predicting patient survival outcomes from medical imaging data. Focused on methodological design and experimental planning for clinical applications.',
+    institution: 'Hamadan University of Technology',
+    type: 'Remote Research',
+    tags: ['Survival Analysis', 'Deep Learning', 'Medical Imaging'],
   },
   {
-    period: '2022 – 2023',
-    title: 'Research Assistant',
-    institution: 'Image Processing Lab, Shahrekord University',
-    location: 'Shahrekord, Iran',
-    supervisors: 'Prof. Reza Rohani (Supervisor) · Prof. Shahla Nemati (Co-Supervisor)',
-    description: 'Participated in an applied academic–industrial research project focused on the integration of augmented reality techniques with MRI data for intraoperative brain surgery visualization.',
+    period: '2022 — 2023',
+    title: 'AR-Guided Brain Surgery Visualization',
+    description: 'Integrated augmented reality techniques with MRI data for real-time intraoperative brain surgery visualization. An academic-industrial collaboration bridging computer vision and surgical practice.',
+    institution: 'Shahrekord University',
+    type: 'Applied Research',
+    tags: ['Augmented Reality', 'MRI', 'Surgical Navigation'],
   },
   {
-    period: '2020 – 2022',
-    title: 'Research Assistant',
-    institution: 'HADiP Lab, Isfahan University of Technology',
-    location: 'Isfahan, Iran',
-    supervisors: 'Prof. Nader Karimi (Supervisor) · Prof. Shadrokh Samavi (Co-Supervisor)',
-    description: 'Conducted research on deep learning and graph neural network models for computer vision tasks on 2D and 3D images, including image inpainting, classification, and segmentation.',
+    period: '2020 — 2022',
+    title: 'Deep Learning for 2D/3D Image Understanding',
+    description: 'Researched graph neural networks and deep learning models for computer vision tasks including image inpainting, classification, and segmentation on both 2D and volumetric medical data.',
+    institution: 'Isfahan University of Technology — HADiP Lab',
+    type: 'Fundamental Research',
+    tags: ['GNN', 'Image Inpainting', 'Segmentation', '3D Vision'],
   },
 ];
 
 export default function Research() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="research" className="relative py-32">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <span className="text-xs text-[#4ECDC4] tracking-[0.3em] uppercase font-medium">Experience</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
-            Research <span className="gradient-text">Experience</span>
-          </h2>
-        </motion.div>
+    <section id="research" className="relative py-32 lg:py-44">
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20" ref={ref}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20 mb-20">
+          <div className="lg:col-span-5">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">03 — Research</span>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-balance">
+                Projects that
+                <br />
+                <span className="gradient-text">matter.</span>
+              </h2>
+            </motion.div>
+          </div>
+          <div className="lg:col-span-7 lg:pt-8">
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg text-slate-400 leading-relaxed font-light"
+            >
+              From fundamental deep learning research to applied clinical systems — each project 
+              is driven by the question: how can intelligent systems improve human health outcomes?
+            </motion.p>
+          </div>
+        </div>
 
-        <div className="space-y-8">
-          {experiences.map((exp, i) => (
+        {/* Project list */}
+        <div className="space-y-0">
+          {projects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="glass-card rounded-2xl p-8 group"
+              transition={{ duration: 0.7, delay: 0.1 + i * 0.15 }}
+              className="group border-t border-white/[0.06] py-10 md:py-14"
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#004F90]/20 text-[#4ECDC4] border border-[#0070CC]/20">
-                      {exp.period}
-                    </span>
-                    <span className="text-slate-600 text-sm">{exp.location}</span>
-                  </div>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-[#4ECDC4] transition-colors">
-                    {exp.title}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
+                <div className="md:col-span-3">
+                  <p className="text-sm text-slate-500 font-medium">{project.period}</p>
+                  <p className="text-xs text-slate-600 mt-1">{project.type}</p>
+                </div>
+                <div className="md:col-span-9">
+                  <h3 className="text-2xl md:text-3xl font-semibold text-white group-hover:text-blue-300 transition-colors mb-4">
+                    {project.title}
                   </h3>
-                  <p className="text-slate-400 mt-1">{exp.institution}</p>
+                  <p className="text-slate-400 leading-relaxed mb-5 max-w-2xl">{project.description}</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                    <p className="text-sm text-slate-500">{project.institution}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 rounded-full text-[11px] text-slate-500 border border-white/[0.06] bg-white/[0.02]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <p className="text-slate-400 text-sm leading-relaxed mb-4">{exp.description}</p>
-
-              <p className="text-xs text-slate-500">
-                <span className="text-slate-400">{exp.supervisors}</span>
-              </p>
             </motion.div>
           ))}
+          <div className="border-t border-white/[0.06]" />
         </div>
       </div>
     </section>

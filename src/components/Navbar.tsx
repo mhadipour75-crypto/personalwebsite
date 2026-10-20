@@ -3,10 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Education', href: '#education' },
-  { label: 'Research', href: '#research' },
-  { label: 'Publications', href: '#publications' },
-  { label: 'Skills', href: '#skills' },
+  { label: 'Work', href: '#research' },
+  { label: 'Writing', href: '#publications' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -15,73 +13,94 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? 'glass py-3' : 'py-5 bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
+          scrolled ? 'glass py-4' : 'py-6 bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          <a href="#" className="text-lg font-semibold tracking-tight">
-            <span className="gradient-text">MH</span>
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
+          <a href="#" className="group flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-colors">
+              <span className="text-xs font-bold text-blue-300">M</span>
+            </div>
+            <span className="text-sm font-medium text-slate-300 hidden sm:block">Mahshid Hadipour</span>
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="nav-link text-sm text-slate-400 hover:text-white"
+                className="nav-link text-[13px] text-slate-500 hover:text-white tracking-wide"
               >
                 {item.label}
               </a>
             ))}
-          </div>
+            <a
+              href="mailto:mahshid.hadipour@gmail.com"
+              className="px-5 py-2 rounded-full text-[13px] text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+            >
+              Say Hello
+            </a>
+          </nav>
 
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden text-white p-2"
+            aria-label="Menu"
           >
             <div className="w-5 flex flex-col gap-1.5">
-              <span className={`block h-px bg-white transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
-              <span className={`block h-px bg-white transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''}`} />
+              <span className={`block h-px bg-white transition-all duration-300 origin-center ${mobileOpen ? 'rotate-45 translate-y-[4px]' : ''}`} />
+              <span className={`block h-px bg-white transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
+              <span className={`block h-px bg-white transition-all duration-300 origin-center ${mobileOpen ? '-rotate-45 -translate-y-[3px]' : ''}`} />
             </div>
           </button>
         </div>
-      </motion.nav>
+      </motion.header>
 
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 glass pt-20 px-6 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-40 glass pt-24 px-8 md:hidden"
           >
-            <div className="flex flex-col gap-6">
+            <nav className="flex flex-col gap-8">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.label}
                   href={item.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.08 }}
                   onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-light text-slate-300 hover:text-white"
+                  className="text-3xl font-light text-slate-300 hover:text-white"
                 >
                   {item.label}
                 </motion.a>
               ))}
-            </div>
+              <motion.a
+                href="mailto:mahshid.hadipour@gmail.com"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                onClick={() => setMobileOpen(false)}
+                className="text-3xl font-light text-blue-400"
+              >
+                Say Hello →
+              </motion.a>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

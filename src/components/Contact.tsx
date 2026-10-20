@@ -1,111 +1,93 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const references = [
-  {
-    name: 'Professor Nader Karimi',
-    institution: 'Isfahan University of Technology',
-    location: 'Isfahan, Iran',
-    email: 'nader.karimi@iut.ac.ir',
-  },
-  {
-    name: 'Professor Shadrokh Samavi',
-    institution: 'Isfahan University of Technology, Seattle and McMaster Universities',
-    location: 'Isfahan, Iran',
-    email: 'samavi96@iut.ac.ir',
-  },
-];
-
 export default function Contact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="contact" className="relative py-32">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <span className="text-xs text-[#4ECDC4] tracking-[0.3em] uppercase font-medium">Get in Touch</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-6">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light">
-            I'm always open to discussing research collaborations, academic opportunities, 
-            or interesting projects in AI and healthcare.
-          </p>
-        </motion.div>
+    <section id="contact" className="relative py-32 lg:py-44">
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20" ref={ref}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+          <div className="lg:col-span-7">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">07 — Contact</span>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold mt-6 leading-tight text-balance">
+                Let's build
+                <br />
+                something <span className="gradient-text">meaningful.</span>
+              </h2>
+              <p className="text-lg text-slate-400 mt-8 leading-relaxed font-light max-w-xl">
+                I'm always interested in research collaborations, academic opportunities, 
+                and projects at the intersection of AI and healthcare.
+              </p>
 
-        {/* Contact Cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-20"
-        >
-          <a
-            href="mailto:mahshid.hadipour@gmail.com"
-            className="glass-card rounded-2xl p-6 text-center group"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#004F90] to-[#0070CC] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <i className="fas fa-envelope text-white" />
-            </div>
-            <p className="text-slate-400 text-sm mb-1">Email</p>
-            <p className="text-white text-sm font-medium">mahshid.hadipour@gmail.com</p>
-          </a>
-
-          <a
-            href="https://linkedin.com/in/mahshid-hadipour-678998200"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-card rounded-2xl p-6 text-center group"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#004F90] to-[#0070CC] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <i className="fab fa-linkedin-in text-white" />
-            </div>
-            <p className="text-slate-400 text-sm mb-1">LinkedIn</p>
-            <p className="text-white text-sm font-medium">mahshid-hadipour</p>
-          </a>
-
-          <a
-            href="tel:+989138865708"
-            className="glass-card rounded-2xl p-6 text-center group"
-          >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#004F90] to-[#0070CC] flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-              <i className="fas fa-phone text-white" />
-            </div>
-            <p className="text-slate-400 text-sm mb-1">Phone</p>
-            <p className="text-white text-sm font-medium">(+98) 913 886 57 08</p>
-          </a>
-        </motion.div>
-
-        {/* References */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-          <h3 className="text-xl font-semibold text-white mb-8 text-center">References</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {references.map((ref, i) => (
-              <div key={i} className="glass-card rounded-2xl p-6">
-                <h4 className="text-white font-medium mb-1">{ref.name}</h4>
-                <p className="text-slate-400 text-sm mb-1">{ref.institution}</p>
-                <p className="text-slate-500 text-xs mb-3">{ref.location}</p>
+              <div className="mt-12 space-y-4">
                 <a
-                  href={`mailto:${ref.email}`}
-                  className="text-[#4ECDC4] text-sm hover:underline inline-flex items-center gap-2"
+                  href="mailto:mahshid.hadipour@gmail.com"
+                  className="group flex items-center gap-4 text-xl md:text-2xl text-white hover:text-blue-300 transition-colors"
                 >
-                  <i className="fas fa-envelope text-xs" />
-                  {ref.email}
+                  <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-all">
+                    <i className="fas fa-envelope text-sm text-slate-500 group-hover:text-blue-400 transition-colors" />
+                  </span>
+                  mahshid.hadipour@gmail.com
+                </a>
+                <a
+                  href="https://linkedin.com/in/mahshid-hadipour-678998200"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 text-xl md:text-2xl text-white hover:text-blue-300 transition-colors"
+                >
+                  <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-all">
+                    <i className="fab fa-linkedin-in text-sm text-slate-500 group-hover:text-blue-400 transition-colors" />
+                  </span>
+                  LinkedIn Profile
+                </a>
+                <a
+                  href="tel:+989138865708"
+                  className="group flex items-center gap-4 text-xl md:text-2xl text-white hover:text-blue-300 transition-colors"
+                >
+                  <span className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-all">
+                    <i className="fas fa-phone text-sm text-slate-500 group-hover:text-blue-400 transition-colors" />
+                  </span>
+                  (+98) 913 886 57 08
                 </a>
               </div>
-            ))}
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* References */}
+          <div className="lg:col-span-5 lg:pt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <p className="text-[11px] text-slate-600 tracking-[0.2em] uppercase mb-8">References</p>
+              <div className="space-y-8">
+                <div className="border-l border-white/[0.06] pl-6">
+                  <h4 className="text-base font-medium text-white mb-1">Prof. Nader Karimi</h4>
+                  <p className="text-sm text-slate-500 mb-2">Isfahan University of Technology</p>
+                  <a href="mailto:nader.karimi@iut.ac.ir" className="text-sm text-blue-400 hover:underline">
+                    nader.karimi@iut.ac.ir
+                  </a>
+                </div>
+                <div className="border-l border-white/[0.06] pl-6">
+                  <h4 className="text-base font-medium text-white mb-1">Prof. Shadrokh Samavi</h4>
+                  <p className="text-sm text-slate-500 mb-2">IUT · Seattle · McMaster</p>
+                  <a href="mailto:samavi96@iut.ac.ir" className="text-sm text-blue-400 hover:underline">
+                    samavi96@iut.ac.ir
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

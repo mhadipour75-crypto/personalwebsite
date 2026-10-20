@@ -1,81 +1,88 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const skillCategories = [
+const skillGroups = [
   {
-    title: 'Programming',
-    icon: 'fas fa-code',
-    skills: ['Python', 'MATLAB', 'Java', 'C/C++', 'CUDA'],
+    category: 'Languages',
+    items: ['Python', 'MATLAB', 'Java', 'C/C++', 'CUDA'],
   },
   {
-    title: 'AI & ML Tools',
-    icon: 'fas fa-brain',
-    skills: ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn'],
+    category: 'Frameworks',
+    items: ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn'],
   },
   {
-    title: 'Libraries',
-    icon: 'fas fa-layer-group',
-    skills: ['NumPy', 'Pandas', 'Matplotlib', 'OpenCV', 'PIL', 'NiBabel', 'SimpleITK'],
+    category: 'Tools',
+    items: ['OpenCV', 'NiBabel', 'SimpleITK', 'NumPy', 'Pandas', 'Matplotlib'],
   },
   {
-    title: 'Tools & Platforms',
-    icon: 'fas fa-tools',
-    skills: ['Linux', 'Git', 'LaTeX'],
-  },
-  {
-    title: 'Languages',
-    icon: 'fas fa-globe',
-    skills: ['Persian (Native)', 'English (Professional)', 'Korean (Practical)'],
+    category: 'Platforms',
+    items: ['Linux', 'Git', 'LaTeX'],
   },
 ];
 
 export default function Skills() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="skills" className="relative py-32 section-gradient">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
+    <section id="skills" className="relative py-32 lg:py-44">
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-20"
         >
-          <span className="text-xs text-[#4ECDC4] tracking-[0.3em] uppercase font-medium">Expertise</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
-            Technical <span className="gradient-text">Skills</span>
+          <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">06 — Toolkit</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-6 text-balance">
+            Technical <span className="gradient-text">stack.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillGroups.map((group, i) => (
             <motion.div
-              key={category.title}
+              key={group.category}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass-card rounded-2xl p-6"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#004F90]/40 to-[#0070CC]/40 flex items-center justify-center">
-                  <i className={`${category.icon} text-[#4ECDC4] text-sm`} />
-                </div>
-                <h3 className="text-white font-semibold">{category.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill) => (
-                  <span
+              <p className="text-[11px] text-slate-600 tracking-[0.2em] uppercase mb-4">{group.category}</p>
+              <div className="space-y-2">
+                {group.items.map((skill) => (
+                  <p
                     key={skill}
-                    className="skill-tag px-3 py-1.5 rounded-lg text-xs text-slate-300"
+                    className="text-base text-slate-300 hover:text-white transition-colors cursor-default"
                   >
                     {skill}
-                  </span>
+                  </p>
                 ))}
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Languages section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mt-20 pt-12 border-t border-white/[0.06]"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { lang: 'Persian', level: 'Native' },
+              { lang: 'English', level: 'Professional' },
+              { lang: 'Korean', level: 'Practical' },
+            ].map((item, i) => (
+              <div key={item.lang} className="flex items-baseline justify-between">
+                <span className="text-lg text-white">{item.lang}</span>
+                <span className="text-sm text-slate-500">{item.level}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,71 +1,66 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-const teaching = [
-  {
-    period: '2021',
-    title: 'Teaching Assistant',
-    institution: 'Isfahan University of Technology',
-    location: 'Isfahan, Iran',
-    courses: ['Computer Fundamentals'],
-  },
-  {
-    period: '2017',
-    title: 'Teaching Assistant',
-    institution: 'Shahrekord University',
-    location: 'Shahrekord, Iran',
-    courses: ['Computer Fundamentals', 'Database Systems', 'Data Structures', 'Algorithms', 'Programming (Python, C++, Java)'],
-  },
-];
-
 export default function Teaching() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section className="relative py-32">
-      <div className="max-w-7xl mx-auto px-6" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="mb-16"
-        >
-          <span className="text-xs text-[#4ECDC4] tracking-[0.3em] uppercase font-medium">Instruction</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
-            Teaching <span className="gradient-text">Experience</span>
-          </h2>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {teaching.map((item, i) => (
+    <section className="relative py-32 lg:py-44">
+      <div className="section-divider" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-20" ref={ref}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
+          <div className="lg:col-span-5">
             <motion.div
-              key={i}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="glass-card rounded-2xl p-8"
+              transition={{ duration: 0.8 }}
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className="px-3 py-1 rounded-full text-xs font-medium bg-[#004F90]/20 text-[#4ECDC4] border border-[#0070CC]/20">
-                  {item.period}
-                </span>
-                <span className="text-slate-600 text-sm">{item.location}</span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-1">{item.title}</h3>
-              <p className="text-slate-400 mb-5">{item.institution}</p>
-              <div className="flex flex-wrap gap-2">
-                {item.courses.map((course) => (
-                  <span
-                    key={course}
-                    className="px-3 py-1.5 rounded-lg text-xs text-slate-300 bg-white/5 border border-white/5"
-                  >
-                    {course}
-                  </span>
-                ))}
+              <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">05 — Teaching</span>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-balance">
+                Sharing <span className="gradient-text">knowledge.</span>
+              </h2>
+            </motion.div>
+          </div>
+          <div className="lg:col-span-7 lg:pt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="space-y-12"
+            >
+              <p className="text-lg text-slate-400 leading-relaxed font-light">
+                I've supported undergraduate education across multiple institutions, helping students 
+                build strong foundations in computer science and engineering.
+              </p>
+
+              {/* Teaching positions */}
+              <div className="space-y-8">
+                <div className="border-l border-white/[0.06] pl-6">
+                  <p className="text-sm text-slate-500 mb-2">2021 — Isfahan University of Technology</p>
+                  <h3 className="text-lg font-medium text-white mb-3">Teaching Assistant</h3>
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1.5 rounded-lg text-[12px] text-slate-400 bg-white/[0.03] border border-white/[0.05]">
+                      Computer Fundamentals
+                    </span>
+                  </div>
+                </div>
+
+                <div className="border-l border-white/[0.06] pl-6">
+                  <p className="text-sm text-slate-500 mb-2">2017 — Shahrekord University</p>
+                  <h3 className="text-lg font-medium text-white mb-3">Teaching Assistant</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {['Computer Fundamentals', 'Database Systems', 'Data Structures', 'Algorithms', 'Programming'].map((course) => (
+                      <span key={course} className="px-3 py-1.5 rounded-lg text-[12px] text-slate-400 bg-white/[0.03] border border-white/[0.05]">
+                        {course}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-slate-600 mt-3">Python · C++ · Java</p>
+                </div>
               </div>
             </motion.div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
