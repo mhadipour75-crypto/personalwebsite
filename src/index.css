@@ -1,1 +1,187 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #004F90;
+    --primary-light: #0070CC;
+    --primary-dark: #003366;
+    --accent: #4ECDC4;
+    --surface: #0a0f1c;
+    --surface-light: #111827;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--surface);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--primary);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--surface);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #0070CC, #4ECDC4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(0, 112, 204, 0.3), rgba(78, 205, 196, 0.1));
+    z-index: -1;
+  }
+
+  .glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    background: rgba(17, 24, 39, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(17, 24, 39, 0.6);
+    border-color: rgba(0, 112, 204, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px -15px rgba(0, 79, 144, 0.2);
+  }
+
+  .hero-gradient {
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 79, 144, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(78, 205, 196, 0.08) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(0, 112, 204, 0.1) 0%, transparent 50%);
+  }
+
+  .section-gradient {
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 79, 144, 0.08) 0%, transparent 60%);
+  }
+
+  .glow-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(78, 205, 196, 0.3);
+  }
+
+  .timeline-line {
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(0, 112, 204, 0.5), transparent);
+  }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary-light), var(--accent));
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .skill-tag {
+    background: rgba(0, 79, 144, 0.15);
+    border: 1px solid rgba(0, 112, 204, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .skill-tag:hover {
+    background: rgba(0, 79, 144, 0.3);
+    border-color: rgba(0, 112, 204, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .floating-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(20px, -30px) scale(1.05); }
+    50% { transform: translate(-10px, 20px) scale(0.95); }
+    75% { transform: translate(15px, 10px) scale(1.02); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .grid-pattern {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgba(0, 112, 204, 0.3);
+  }
+}
