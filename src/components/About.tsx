@@ -47,16 +47,15 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="space-y-8"
             >
-              <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light text-balance">
-                I develop deep learning systems that analyze medical images to detect diseases 
-                earlier and more accurately — bridging the gap between cutting-edge AI research 
-                and real clinical impact.
+              <p className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light text-balance">
+                I build deep learning systems that read medical images — detecting disease earlier
+                and more accurately than human eyes alone, and turning scans into decisions.
               </p>
-              <p className="text-base text-slate-500 leading-relaxed">
-                My work spans from architectural innovations in neural networks to applied research 
-                in Alzheimer's detection, brain surgery visualization with augmented reality, and 
-                medical image survival analysis. I believe the most meaningful AI research happens 
-                at the intersection of technical rigor and human need.
+              <p className="text-base text-slate-400 leading-relaxed">
+                My work moves between architectural innovation in neural networks and applied clinical
+                research: early Alzheimer's detection from brain geometry, augmented-reality guidance
+                for neurosurgery, and survival analysis built on medical imaging. I believe the most
+                meaningful AI lives where technical rigor meets human need.
               </p>
 
               {/* Interest tags */}
@@ -69,7 +68,7 @@ export default function About() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.4, delay: 0.4 + i * 0.05 }}
-                      className="px-4 py-2 rounded-full text-[13px] text-slate-400 border border-white/[0.06] bg-white/[0.02] hover:border-blue-400/20 hover:text-blue-300 transition-all cursor-default"
+                      className="tag"
                     >
                       {interest}
                     </motion.span>

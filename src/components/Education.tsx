@@ -15,7 +15,7 @@ export default function Education() {
           transition={{ duration: 0.8 }}
           className="mb-20"
         >
-          <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">02 — Background</span>
+          <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">04 — Background</span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-6 text-balance">
             Academic <span className="gradient-text">journey</span>
           </h2>
@@ -27,7 +27,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="group border-t border-white/[0.06] py-10 md:py-14"
+            className="group border-t border-white/[0.07] py-10 md:py-14"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
               <div className="md:col-span-3">
@@ -59,7 +59,7 @@ export default function Education() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="group border-t border-white/[0.06] py-10 md:py-14"
+            className="group border-t border-white/[0.07] py-10 md:py-14"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
               <div className="md:col-span-3">
@@ -91,22 +91,24 @@ export default function Education() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="border-t border-white/[0.06] py-10 md:py-14"
+            className="border-t border-white/[0.07] py-10 md:py-14"
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
               <div className="md:col-span-3">
-                <p className="text-sm text-slate-500 font-medium">Recognition</p>
+                <p className="text-sm text-slate-500 font-medium">Distinctions</p>
               </div>
               <div className="md:col-span-9">
                 <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-                  National distinctions
+                  National honors & scholarships
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
-                    'Top 1% in National M.Sc. Entrance Exam (AI & Robotics)',
-                    'Top 1% in National M.Sc. Entrance Exam (IT)',
-                    'Top 1% in National B.Sc. Entrance Exam (Math & Physics)',
+                    'Top 1% — National M.Sc. Entrance Exam (AI & Robotics)',
+                    'Top 1% — National M.Sc. Entrance Exam (IT)',
+                    'Top 1% — National B.Sc. Entrance Exam (Math & Physics)',
                     'Full merit scholarship — both degrees',
+                    'Ranked 4th in AI & Robotics specialization',
+                    'Ranked 3rd in Computer Engineering specialization',
                   ].map((award, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <div className="w-1 h-1 rounded-full bg-blue-400 mt-2.5 flex-shrink-0" />
@@ -118,7 +120,7 @@ export default function Education() {
             </div>
           </motion.div>
 
-          <div className="border-t border-white/[0.06]" />
+          <div className="border-t border-white/[0.07]" />
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export default function Publications() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">04 — Writing</span>
+              <span className="text-[11px] text-blue-400 tracking-[0.3em] uppercase font-medium">03 — Writing</span>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mt-6 leading-tight text-balance">
                 Published <span className="gradient-text">work.</span>
               </h2>
@@ -29,8 +29,8 @@ export default function Publications() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-lg text-slate-400 leading-relaxed font-light"
             >
-              Peer-reviewed contributions to the field of computer vision and image processing, 
-              with ongoing work in medical image analysis.
+              Peer-reviewed contributions to computer vision and image processing, with ongoing
+              work advancing medical image analysis.
             </motion.p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function Publications() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="border-t border-white/[0.06] py-12 md:py-16"
+          className="border-t border-white/[0.07] py-12 md:py-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
             <div className="md:col-span-3">
@@ -66,7 +66,7 @@ export default function Publications() {
                   href="https://arxiv.org/pdf/2112.09262"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+                  className="btn"
                 >
                   <i className="fas fa-file-alt text-[10px]" />
                   Read Paper
@@ -75,7 +75,7 @@ export default function Publications() {
                   href="https://github.com/givkashi/Image-Inpainting"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[13px] text-white bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+                  className="btn"
                 >
                   <i className="fab fa-github text-[10px]" />
                   Source Code
@@ -90,7 +90,7 @@ export default function Publications() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.35 }}
-          className="border-t border-white/[0.06] py-12 md:py-16"
+          className="border-t border-white/[0.07] py-12 md:py-16"
         >
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
             <div className="md:col-span-3">
@@ -106,15 +106,15 @@ export default function Publications() {
                 Deep learning-based medical image survival analysis
               </h3>
               <p className="text-sm text-slate-400 leading-relaxed max-w-2xl">
-                Currently in preparation — a novel framework combining deep learning with survival analysis 
-                methodologies for medical imaging applications. Planned submission to a peer-reviewed 
-                international venue.
+                Currently in preparation — a novel framework combining deep learning with survival
+                analysis methodologies for medical imaging applications. Planned submission to a
+                peer-reviewed international venue.
               </p>
             </div>
           </div>
         </motion.div>
 
-        <div className="border-t border-white/[0.06]" />
+        <div className="border-t border-white/[0.07]" />
       </div>
     </section>
   );

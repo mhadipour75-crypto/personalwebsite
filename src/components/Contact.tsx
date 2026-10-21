@@ -23,8 +23,8 @@ export default function Contact() {
                 something <span className="gradient-text">meaningful.</span>
               </h2>
               <p className="text-lg text-slate-400 mt-8 leading-relaxed font-light max-w-xl">
-                I'm always interested in research collaborations, academic opportunities, 
-                and projects at the intersection of AI and healthcare.
+                Open to research collaborations, PhD opportunities, and projects at the intersection
+                of AI and healthcare.
               </p>
 
               <div className="mt-12 space-y-4">
@@ -70,14 +70,14 @@ export default function Contact() {
             >
               <p className="text-[11px] text-slate-600 tracking-[0.2em] uppercase mb-8">References</p>
               <div className="space-y-8">
-                <div className="border-l border-white/[0.06] pl-6">
+                <div className="border-l border-white/[0.08] pl-6">
                   <h4 className="text-base font-medium text-white mb-1">Prof. Nader Karimi</h4>
                   <p className="text-sm text-slate-500 mb-2">Isfahan University of Technology</p>
                   <a href="mailto:nader.karimi@iut.ac.ir" className="text-sm text-blue-400 hover:underline">
                     nader.karimi@iut.ac.ir
                   </a>
                 </div>
-                <div className="border-l border-white/[0.06] pl-6">
+                <div className="border-l border-white/[0.08] pl-6">
                   <h4 className="text-base font-medium text-white mb-1">Prof. Shadrokh Samavi</h4>
                   <p className="text-sm text-slate-500 mb-2">IUT · Seattle · McMaster</p>
                   <a href="mailto:samavi96@iut.ac.ir" className="text-sm text-blue-400 hover:underline">

@@ -7,11 +7,11 @@ const skillGroups = [
     items: ['Python', 'MATLAB', 'Java', 'C/C++', 'CUDA'],
   },
   {
-    category: 'Frameworks',
+    category: 'AI Frameworks',
     items: ['PyTorch', 'TensorFlow', 'Keras', 'Scikit-learn'],
   },
   {
-    category: 'Tools',
+    category: 'Libraries',
     items: ['OpenCV', 'NiBabel', 'SimpleITK', 'NumPy', 'Pandas', 'Matplotlib'],
   },
   {
@@ -68,15 +68,16 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-20 pt-12 border-t border-white/[0.06]"
+          className="mt-20 pt-12 border-t border-white/[0.07]"
         >
+          <p className="text-[11px] text-slate-600 tracking-[0.2em] uppercase mb-6">Spoken Languages</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { lang: 'Persian', level: 'Native' },
               { lang: 'English', level: 'Professional' },
               { lang: 'Korean', level: 'Practical' },
             ].map((item, i) => (
-              <div key={item.lang} className="flex items-baseline justify-between">
+              <div key={item.lang} className="flex items-baseline justify-between border-b border-white/[0.05] pb-3">
                 <span className="text-lg text-white">{item.lang}</span>
                 <span className="text-sm text-slate-500">{item.level}</span>
               </div>

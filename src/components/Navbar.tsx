@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
   { label: 'About', href: '#about' },
-  { label: 'Work', href: '#research' },
+  { label: 'Research', href: '#research' },
   { label: 'Writing', href: '#publications' },
+  { label: 'Background', href: '#education' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -30,13 +31,13 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between">
           <a href="#" className="group flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-400/10 border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-colors">
-              <span className="text-xs font-bold text-blue-300">M</span>
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500/25 to-cyan-400/10 border border-white/10 flex items-center justify-center group-hover:border-blue-400/30 transition-colors">
+              <span className="text-xs font-bold text-blue-300 font-display">M</span>
             </div>
             <span className="text-sm font-medium text-slate-300 hidden sm:block">Mahshid Hadipour</span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-9">
             {navItems.map((item) => (
               <a
                 key={item.label}
